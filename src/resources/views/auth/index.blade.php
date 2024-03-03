@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 <h1>test</h1>
 @foreach ($infomation as $infomation1)
   <div>{{ $infomation1->title }}</div>
