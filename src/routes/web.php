@@ -24,4 +24,4 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
 Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
 
-Route::get('/index/admin', 'Auth\InfomationController@index')->name('admin-index');
+Route::get('/admin/infomation/index', 'Auth\InfomationController@index')->name('admin-index');
