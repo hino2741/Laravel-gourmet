@@ -60,6 +60,21 @@
                     </div>
                 @endguest
             </ul>
+            <nav class="navbar navbar-fixed-left">
+              <div class="container">
+                <div class="navbar-header navbar-left-header">MENU</div>
+                <div class="navbar-collapse collapse">
+                  <ul class="nav-left-list">
+                    <li>
+                      <a href="{{ route('home')}}">管理ホーム</a>
+                    </li>
+                    <li>
+                      <a href="{{ route('admin-blog-index')}}">ブログ</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
 
         <main class="py-4">
             @yield('content')

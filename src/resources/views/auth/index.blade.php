@@ -30,3 +30,5 @@
     </div>
   </div>
 @endforeach
+<div aria-label="Page navigation example" class="text-center">{{ $infomation->appends(request()->query())->links() }}</div>
+@endsection

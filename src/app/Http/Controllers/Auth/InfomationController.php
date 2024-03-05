@@ -17,7 +17,9 @@ class InfomationController extends Controller
 
     public function index()
     {
-        $infomation = $this->infomation->all();
+        $infomation = $this->infomation
+            ->orderByDesc('release_date')
+            ->paginate();
         return view('auth.index', compact('infomation'), ['authgroup' => 'admin']);
     }
 }
