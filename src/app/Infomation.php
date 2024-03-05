@@ -11,4 +11,9 @@ class Infomation extends Model
     protected $dates = [
         'release_date'
     ];
+
+    public function adminUsers()
+    {
+        return $this->belongsTo(AdminUser::class);
+    }
 }

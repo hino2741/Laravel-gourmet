@@ -38,4 +38,9 @@ class AdminUser extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function infomation()
+    {
+        return $this->hasMany(Infomation::class, 'user_id');
+    }
 }
