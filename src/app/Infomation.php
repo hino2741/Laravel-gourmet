@@ -14,6 +14,6 @@ class Infomation extends Model
 
     public function adminUsers()
     {
-        return $this->belongsTo(AdminUser::class);
+        return $this->belongsTo(AdminUser::class, 'user_id');
     }
 }

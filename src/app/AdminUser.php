@@ -41,6 +41,6 @@ class AdminUser extends Authenticatable
 
     public function infomation()
     {
-        return $this->hasMany(Infomation::class, 'user_id');
+        return $this->hasMany(Infomation::class);
     }
 }
