@@ -16,6 +16,7 @@
 
                     You are logged in as 管理者!
                 </div>
+                <a class="btn btn-icon" href="{{ route('admin-blog-index') }}">ブログ記事一覧</i></a>
             </div>
         </div>
     </div>
