@@ -19,10 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('login');
-    Route::get('/register', 'Auth\RegisterController@showAdminRegisterForm')->name('register');
-    Route::post('/login', 'Auth\LoginController@adminLogin');
-    Route::post('/register', 'Auth\RegisterController@createAdmin')->name('register');
+    Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('login');
+    Route::get('/register', 'Admin\Auth\RegisterController@showRegisterForm')->name('register');
+    Route::post('/login', 'Admin\Auth\LoginController@Login');
+    Route::post('/register', 'Admin\Auth\RegisterController@create')->name('register');
     Route::view('/', 'admin')->middleware('auth:admin')->name('home');
     Route::get('/infomation', 'Auth\InfomationController@index')->name('blog.index');
 });
