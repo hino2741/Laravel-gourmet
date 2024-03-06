@@ -28,11 +28,11 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @if(!Auth::check() && (!isset($authgroup) || !Auth::guard($authgroup)->check()))
-                                @isset($authgroup)
+                            @isset($authgroup)
                                 <a class="nav-link" href="{{ route("$authgroup.login") }}">{{ __('Login') }}</a>
-                                @else
+                            @else
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                @endisset
+                            @endisset
                             @isset($authgroup)
                             @if (Route::has("$authgroup.register"))
                                 <a class="nav-link" href="{{ route("$authgroup.register") }}">{{ __('Register') }}</a>
@@ -46,19 +46,17 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @isset($authgroup)
-                                    {{ Auth::guard($authgroup)->user()->name }} <span class="caret"></span>
+                                        {{ Auth::guard($authgroup)->user()->name }} <span class="caret"></span>
                                     @else
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
                                     @endisset
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -69,7 +67,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

@@ -28,9 +28,9 @@
                 @if(!Auth::check() && (!isset($authgroup) || !Auth::guard($authgroup)->check()))
                     <li class="nav-item">
                         @isset($authgroup)
-                        <a class="nav-link" href="{{ url("$authgroup/login") }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ url("$authgroup/login") }}">{{ __('Login') }}</a>
                         @else
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @endisset
                     </li>
                     @isset($authgroup)
@@ -53,7 +53,6 @@
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
@@ -61,21 +60,20 @@
                 @endguest
             </ul>
             <nav class="navbar navbar-fixed-left">
-              <div class="container">
-                <div class="navbar-header navbar-left-header">MENU</div>
-                <div class="navbar-collapse collapse">
-                  <ul class="nav-left-list">
-                    <li>
-                      <a href="{{ route('admin.home')}}">管理ホーム</a>
-                    </li>
-                    <li>
-                      <a href="{{ route('admin.blog.index')}}">ブログ</a>
-                    </li>
-                  </ul>
+                <div class="container">
+                    <div class="navbar-header navbar-left-header">MENU</div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav-left-list">
+                            <li>
+                                <a href="{{ route('admin.home')}}">管理ホーム</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.blog.index')}}">ブログ</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
             </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
