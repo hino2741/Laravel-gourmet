@@ -28,7 +28,7 @@
                 @if(!Auth::check() && (!isset($authgroup) || !Auth::guard($authgroup)->check()))
                     <li class="nav-item">
                         @isset($authgroup)
-                        <a class="nav-link" href="{{ url("login/$authgroup") }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ url("$authgroup/login") }}">{{ __('Login') }}</a>
                         @else
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @endisset
@@ -69,7 +69,7 @@
                       <a href="{{ route('home')}}">管理ホーム</a>
                     </li>
                     <li>
-                      <a href="{{ route('admin-blog-index')}}">ブログ</a>
+                      <a href="{{ route('admin.blog.index')}}">ブログ</a>
                     </li>
                   </ul>
                 </div>

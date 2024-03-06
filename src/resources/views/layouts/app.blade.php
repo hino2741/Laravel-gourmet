@@ -24,18 +24,18 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side fOf Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @if(!Auth::check() && (!isset($authgroup) || !Auth::guard($authgroup)->check()))
                                 @isset($authgroup)
-                                <a class="nav-link" href="{{ url("login/$authgroup") }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route("$authgroup.login") }}">{{ __('Login') }}</a>
                                 @else
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 @endisset
                             @isset($authgroup)
-                            @if (Route::has("$authgroup-register"))
-                                <a class="nav-link" href="{{ route("$authgroup-register") }}">{{ __('Register') }}</a>
+                            @if (Route::has("$authgroup.register"))
+                                <a class="nav-link" href="{{ route("$authgroup.register") }}">{{ __('Register') }}</a>
                             @endif
                             @else
                             @if (Route::has('register'))
