@@ -5,12 +5,18 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
+    use AuthenticatesUsers;
+
+    protected $redirectTo = RouteServiceProvider::HOME;
+
     public function __construct()
     {
-        $this->middleware('guest:admin');
+        $this->middleware('guest:admin')->except('logout');;
     }
 
     public function showLoginForm()

@@ -29,7 +29,7 @@
                         <!-- Authentication Links -->
                         @if(!Auth::check() && (!isset($authgroup) || !Auth::guard($authgroup)->check()))
                             @isset($authgroup)
-                                <a class="nav-link" href="{{ route("$authgroup.login") }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ url("$authgroup/login") }}">{{ __('Login') }}</a>
                             @else
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @endisset
@@ -39,16 +39,18 @@
                             @endif
                             @else
                             @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
                             @endif
                             @endisset
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @isset($authgroup)
-                                        {{ Auth::guard($authgroup)->user()->name }} <span class="caret"></span>
+                                    {{ Auth::guard($authgroup)->user()->name }} <span class="caret"></span>
                                     @else
-                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                     @endisset
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -67,6 +69,7 @@
                 </div>
             </div>
         </nav>
+
         <main class="py-4">
             @yield('content')
         </main>

@@ -29,8 +29,6 @@
                     <li class="nav-item">
                         @isset($authgroup)
                             <a class="nav-link" href="{{ url("$authgroup/login") }}">{{ __('Login') }}</a>
-                        @else
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @endisset
                     </li>
                     @isset($authgroup)
