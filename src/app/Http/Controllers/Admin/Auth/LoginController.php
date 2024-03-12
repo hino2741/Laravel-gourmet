@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\LoginRequest;
+use App\Http\Requests\Admin\AdminUserLoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Providers\RouteServiceProvider;
@@ -24,7 +24,7 @@ class LoginController extends Controller
         return view('auth.login', ['authgroup' => 'admin']);
     }
 
-    public function Login(LoginRequest $request)
+    public function Login(AdminUserLoginRequest $request)
     {
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
