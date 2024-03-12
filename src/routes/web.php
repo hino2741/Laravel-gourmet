@@ -22,5 +22,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/logout', 'Admin\Auth\LoginController@logout')->name('logout');
     Route::post('/register', 'Admin\Auth\RegisterController@create')->name('admin.register');
     Route::view('/', 'admin')->middleware('auth:admin')->name('admin.home');
-    Route::get('/information', 'Admin\Auth\InformationController@index')->name('admin.blog.index');
+    Route::get('/information', 'Admin\Auth\InformationController@index')->name('admin.information.index');
 });
