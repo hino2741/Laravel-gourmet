@@ -18,6 +18,6 @@ class InformationController extends Controller
         $informationList = $this->information
             ->orderByDesc('release_date')
             ->paginate();
-        return view('auth.index', compact('informationList'), ['authgroup' => 'admin']);
+        return view('auth.information.index', compact('informationList'), ['authgroup' => 'admin']);
     }
 }
