@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\AdminUser;
+use App\Models\AdminUser;
 use App\Http\Requests\Admin\AdminUserRegisterRequest;
 use Illuminate\Support\Facades\Hash;
 

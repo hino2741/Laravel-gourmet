@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Infomation;
+use App\Models\Infomation;
 
 class InfomationController extends Controller
 {

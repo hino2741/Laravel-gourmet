@@ -2,8 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\AdminUser;
-use App\Infomation;
+use App\Models\AdminUser;
+use App\Models\Infomation;
 use Faker\Generator as Faker;
 
 $factory->define(Infomation::class, function (Faker $faker) {
