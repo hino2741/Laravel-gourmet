@@ -22,9 +22,9 @@ class RegisterController extends Controller
     protected function create(AdminUserRegisterRequest $request)
     {
         $admin = AdminUser::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
         return redirect()->intended('admin/login');
     }
