@@ -23,7 +23,7 @@
           </tr>
           <tr>
             <th>作成日</th>
-            <td>{{ $information->created_at->format('Y-m-d') }}</td>
+            <td>{{ $information->created_at->format('Y/m/d') }}</td>
           </tr>
         </tbody>
       </table>
