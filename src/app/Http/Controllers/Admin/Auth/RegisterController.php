@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\AdminUser;
-use App\Http\Requests\Admin\RegisterRequest;
+use App\Http\Requests\Admin\AdminUserRegisterRequest;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -19,7 +19,7 @@ class RegisterController extends Controller
         return view('auth.register', ['authgroup' => 'admin']);
     }
 
-    protected function create(RegisterRequest $request)
+    protected function create(AdminUserRegisterRequest $request)
     {
         $admin = AdminUser::create([
             'name' => $request['name'],
