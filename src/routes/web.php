@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('login');
     Route::get('/register', 'Admin\Auth\RegisterController@showRegisterForm')->name('admin.register');
