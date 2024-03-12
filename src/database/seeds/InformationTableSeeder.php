@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Infomation;
+use App\Models\Information;
 
-class InfomationTableSeeder extends Seeder
+class InformationTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class InfomationTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Infomation::class, 10)->create();
+        factory(Information::class, 10)->create();
     }
 }

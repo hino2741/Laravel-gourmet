@@ -3,10 +3,10 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Models\AdminUser;
-use App\Models\Infomation;
+use App\Models\Information;
 use Faker\Generator as Faker;
 
-$factory->define(Infomation::class, function (Faker $faker) {
+$factory->define(Information::class, function (Faker $faker) {
     $users = AdminUser::all();
     return [
         'user_id' => $users->random()->id,

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInfomationTable extends Migration
+class CreateInformationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInfomationTable extends Migration
      */
     public function up()
     {
-        Schema::create('infomation', function (Blueprint $table) {
+        Schema::create('information', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('インフォメーションID');
             $table->unsignedBigInteger('user_id')->comment('ユーザID');
             $table->string('title')->comment('タイトル');
@@ -33,6 +33,6 @@ class CreateInfomationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('infomation');
+        Schema::dropIfExists('information');
     }
 }

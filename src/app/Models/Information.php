@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Infomation extends Model
+class Information extends Model
 {
-    protected $table = 'infomation';
+    protected $table = 'information';
 
     protected $dates = [
         'release_date'
