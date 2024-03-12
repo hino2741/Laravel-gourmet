@@ -15,7 +15,7 @@
         <tbody>
           <tr>
             <th>作成管理者名</th>
-            <td>{{ $information->adminUsers->name }}</td>
+            <td>{{ $information->adminUser->name }}</td>
           </tr>
           <tr>
             <th>公開日</th>

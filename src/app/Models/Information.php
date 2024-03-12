@@ -12,7 +12,7 @@ class Information extends Model
         'release_date'
     ];
 
-    public function adminUsers()
+    public function adminUser()
     {
         return $this->belongsTo(AdminUser::class, 'user_id');
     }
