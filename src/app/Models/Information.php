@@ -8,11 +8,10 @@ class Information extends Model
 {
     protected $table = 'information';
 
-    protected $fillabele = [
+    protected $fillable = [
         'title',
         'content',
         'release_date',
-        '_token',
     ];
 
     protected $dates = [
