@@ -8,6 +8,13 @@ class Information extends Model
 {
     protected $table = 'information';
 
+    protected $fillabele = [
+        'title',
+        'content',
+        'release_date',
+        '_token',
+    ];
+
     protected $dates = [
         'release_date'
     ];
