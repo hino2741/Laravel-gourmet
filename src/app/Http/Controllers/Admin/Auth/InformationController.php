@@ -33,7 +33,25 @@ class InformationController extends Controller
     {
         $inputs = $request->all();
         $this->information->user_id = Auth::id();
-        $this->information->fill($inputs)->save();
+        $this->information
+            ->fill($inputs)
+            ->save();
+        return redirect()->route('admin.information.index');
+    }
+
+    public function edit($id)
+    {
+        $information = $this->information->findOrFail($id);
+        return view('auth.information.edit', compact('information'));
+    }
+
+    public function update(AdminInformationRequest $request, $id)
+    {
+        $inputs = $request->all();
+        $this->information
+            ->findOrFail($id)
+            ->fill($inputs)
+            ->save();
         return redirect()->route('admin.information.index');
     }
 }

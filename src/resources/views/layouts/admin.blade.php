@@ -63,10 +63,10 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav-left-list">
                             <li>
-                                <a href="{{ route('admin.home')}}">管理ホーム</a>
+                                <a href="{{ route('admin.home') }}">管理ホーム</a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.information.index')}}">ブログ</a>
+                                <a href="{{ route('admin.information.index') }}">ブログ</a>
                             </li>
                         </ul>
                     </div>

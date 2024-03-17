@@ -25,4 +25,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/information', 'Admin\Auth\InformationController@index')->name('admin.information.index');
     Route::get('/information/create', 'Admin\Auth\InformationController@create');
     Route::post('/information', 'Admin\Auth\InformationController@store')->name('admin.information.store');
+    Route::get('/information/{id}/edit', 'Admin\Auth\InformationController@edit')->name('admin.information.edit');
+    Route::put('/information/{id}', 'Admin\Auth\InformationController@update')->name('admin.information.update');
 });
