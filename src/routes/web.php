@@ -22,9 +22,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/logout', 'Admin\Auth\LoginController@logout')->name('logout');
     Route::post('/register', 'Admin\Auth\RegisterController@create')->name('admin.register');
     Route::view('/', 'admin')->middleware('auth:admin')->name('admin.home');
-    Route::get('/information', 'Admin\Auth\InformationController@index')->name('admin.information.index');
-    Route::get('/information/create', 'Admin\Auth\InformationController@create')->name('admin.information.create');
-    Route::post('/information', 'Admin\Auth\InformationController@store')->name('admin.information.store');
-    Route::get('/information/{id}/edit', 'Admin\Auth\InformationController@edit')->name('admin.information.edit');
-    Route::put('/information/{id}', 'Admin\Auth\InformationController@update')->name('admin.information.update');
+    Route::group(['prefix' => 'information'],function () {
+        Route::get('/', 'Admin\Auth\InformationController@index')->name('admin.information.index');
+        Route::get('/create', 'Admin\Auth\InformationController@create')->name('admin.information.create');
+        Route::post('/', 'Admin\Auth\InformationController@store')->name('admin.information.store');
+        Route::get('/{id}/edit', 'Admin\Auth\InformationController@edit')->name('admin.information.edit');
+        Route::put('/{id}', 'Admin\Auth\InformationController@update')->name('admin.information.update');
+    });
 });
