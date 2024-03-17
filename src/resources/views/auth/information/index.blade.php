@@ -27,6 +27,7 @@
           </tr>
         </tbody>
       </table>
+      <a href="{{ route('admin.information.edit', $information->id) }}">編集</a>
     </div>
   </div>
 @endforeach

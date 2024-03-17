@@ -68,6 +68,9 @@
                             <li>
                                 <a href="{{ route('admin.information.index') }}">ブログ</a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.information.create') }}">ブログ作成</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
