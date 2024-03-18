@@ -21,12 +21,12 @@ class InformationController extends Controller
             ->with('adminUser')
             ->orderByDesc('release_date')
             ->paginate();
-        return view('auth.information.index', compact('informationList'), ['authgroup' => 'admin']);
+        return view('admin.information.index', compact('informationList'), ['authgroup' => 'admin']);
     }
 
     public function create()
     {
-        return view('auth.information.create');
+        return view('admin.information.create');
     }
 
     public function store(AdminInformationRequest $request)
@@ -42,7 +42,7 @@ class InformationController extends Controller
     public function edit($id)
     {
         $information = $this->information->findOrFail($id);
-        return view('auth.information.edit', compact('information'));
+        return view('admin.information.edit', compact('information'));
     }
 
     public function update(AdminInformationRequest $request, $id)
