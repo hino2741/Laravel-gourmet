@@ -23,10 +23,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('/register', 'Admin\Auth\RegisterController@create')->name('register');
     Route::view('/', 'admin')->middleware('auth:admin')->name('home');
     Route::group(['prefix' => 'information', 'as' => 'information.'],function () {
-        Route::get('/', 'Admin\Auth\InformationController@index')->name('index');
-        Route::get('/create', 'Admin\Auth\InformationController@create')->name('create');
-        Route::post('/', 'Admin\Auth\InformationController@store')->name('store');
-        Route::get('/{id}/edit', 'Admin\Auth\InformationController@edit')->name('edit');
-        Route::put('/{id}', 'Admin\Auth\InformationController@update')->name('update');
+        Route::get('/', 'Admin\InformationController@index')->name('index');
+        Route::get('/create', 'Admin\InformationController@create')->name('create');
+        Route::post('/', 'Admin\InformationController@store')->name('store');
+        Route::get('/{id}/edit', 'Admin\InformationController@edit')->name('edit');
+        Route::put('/{id}', 'Admin\InformationController@update')->name('update');
     });
 });
