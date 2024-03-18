@@ -15,18 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('login');
-    Route::get('/register', 'Admin\Auth\RegisterController@showRegisterForm')->name('admin.register');
+    Route::get('/register', 'Admin\Auth\RegisterController@showRegisterForm')->name('register');
     Route::post('/login', 'Admin\Auth\LoginController@login');
     Route::post('/logout', 'Admin\Auth\LoginController@logout')->name('logout');
-    Route::post('/register', 'Admin\Auth\RegisterController@create')->name('admin.register');
-    Route::view('/', 'admin')->middleware('auth:admin')->name('admin.home');
-    Route::group(['prefix' => 'information'],function () {
-        Route::get('/', 'Admin\Auth\InformationController@index')->name('admin.information.index');
-        Route::get('/create', 'Admin\Auth\InformationController@create')->name('admin.information.create');
-        Route::post('/', 'Admin\Auth\InformationController@store')->name('admin.information.store');
-        Route::get('/{id}/edit', 'Admin\Auth\InformationController@edit')->name('admin.information.edit');
-        Route::put('/{id}', 'Admin\Auth\InformationController@update')->name('admin.information.update');
+    Route::post('/register', 'Admin\Auth\RegisterController@create')->name('register');
+    Route::view('/', 'admin')->middleware('auth:admin')->name('home');
+    Route::group(['prefix' => 'information', 'as' => 'information.'],function () {
+        Route::get('/', 'Admin\Auth\InformationController@index')->name('index');
+        Route::get('/create', 'Admin\Auth\InformationController@create')->name('create');
+        Route::post('/', 'Admin\Auth\InformationController@store')->name('store');
+        Route::get('/{id}/edit', 'Admin\Auth\InformationController@edit')->name('edit');
+        Route::put('/{id}', 'Admin\Auth\InformationController@update')->name('update');
     });
 });
