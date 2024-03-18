@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Information;
-use App\Http\Requests\Admin\AdminInformationRequest;
+use App\Http\Requests\Admin\InformationRequest;
 use Illuminate\Support\Facades\Auth;
 
 class InformationController extends Controller
@@ -29,7 +29,7 @@ class InformationController extends Controller
         return view('admin.information.create');
     }
 
-    public function store(AdminInformationRequest $request)
+    public function store(InformationRequest $request)
     {
         $inputs = $request->all();
         $this->information->user_id = Auth::id();
@@ -45,7 +45,7 @@ class InformationController extends Controller
         return view('admin.information.edit', compact('information'));
     }
 
-    public function update(AdminInformationRequest $request, $id)
+    public function update(InformationRequest $request, $id)
     {
         $inputs = $request->all();
         $this->information
