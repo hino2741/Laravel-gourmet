@@ -23,7 +23,23 @@
 <body>
     <div id="app">
         <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+        <div class="nav navbar-nav navbar-right nav-user">
+            <div class="dropdown">
+                <a class="user-name-box dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">サブメニュー</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a class="dropdown-item" href="{{ route('admin.logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
                 <!-- Authentication Links -->
                 @if(!Auth::check() && (!isset($authgroup) || !Auth::guard($authgroup)->check()))
                     <li class="nav-item">
@@ -44,17 +60,6 @@
                         </li>
                     @endif
                     @endisset
-                @else
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
                 @endguest
             </ul>
             <nav class="navbar navbar-fixed-left">
@@ -63,10 +68,13 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav-left-list">
                             <li>
-                                <a href="{{ route('admin.home')}}">管理ホーム</a>
+                                <a href="{{ route('admin.home') }}">管理ホーム</a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.information.index')}}">ブログ</a>
+                                <a href="{{ route('admin.information.index') }}">ブログ</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.information.create') }}">ブログ作成</a>
                             </li>
                         </ul>
                     </div>

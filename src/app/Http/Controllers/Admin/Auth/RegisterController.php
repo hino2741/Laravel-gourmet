@@ -16,7 +16,7 @@ class RegisterController extends Controller
 
     public function showRegisterForm()
     {
-        return view('auth.register', ['authgroup' => 'admin']);
+        return view('admin.register', ['authgroup' => 'admin']);
     }
 
     protected function create(AdminUserRegisterRequest $request)
