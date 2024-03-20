@@ -54,4 +54,12 @@ class InformationController extends Controller
             ->save();
         return redirect()->route('admin.information.index');
     }
+
+    public function delete($id)
+    {
+        $this->information
+            ->findOrFail($id)
+            ->delete();
+        return redirect()->route('admin.information.index');
+    }
 }

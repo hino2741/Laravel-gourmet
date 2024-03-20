@@ -28,5 +28,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::post('/', 'Admin\InformationController@store')->name('store');
         Route::get('/{id}/edit', 'Admin\InformationController@edit')->name('edit');
         Route::put('/{id}', 'Admin\InformationController@update')->name('update');
+        Route::delete('/{id}', 'Admin\InformationController@delete')->name('delete');
     });
 });
