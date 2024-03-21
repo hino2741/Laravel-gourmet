@@ -27,7 +27,12 @@
           </tr>
         </tbody>
       </table>
-      <a href="{{ route('admin.information.edit', $information->id) }}">編集</a>
+      <a class="btn" href="{{ route('admin.information.edit', $information->id) }}">編集</a>
+      <form method="POST" action="{{ route('admin.information.delete', $information->id) }}">
+        @method('delete')
+        @csrf
+        <button type="submit" class="btn">削除</button>
+      </form>
     </div>
   </div>
 @endforeach
