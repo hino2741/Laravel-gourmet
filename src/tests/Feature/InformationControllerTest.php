@@ -82,6 +82,13 @@ class InformationControllerTest extends TestCase
         $this->assertSoftDeleted($information);
     }
 
+    public function testDeleteNotFoundId()
+    {
+        $user = factory(AdminUser::class)->create();
+        $response = $this->actingAs($user, 'admin')->delete(route('admin.information.delete', 999));
+        $response->assertStatus(404);
+    }
+
     public function testIndex()
     {
         $user = factory(AdminUser::class)->create();
