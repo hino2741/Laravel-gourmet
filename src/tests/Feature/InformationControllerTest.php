@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Models\AdminUser;
 use App\Models\Information;
 use Carbon\Carbon;
+use App\Http\Requests\Admin\InformationRequest;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -90,5 +92,69 @@ class InformationControllerTest extends TestCase
         $response->assertSee($information->title);
         $response->assertSee($information->content);
         $response->assertSee($information->release_date->format('Y/m/d'));
+    }
+
+    /**
+     * @param array
+     * @param array
+     * @param boolean
+     * @dataProvider dataproviderExample
+     */
+    public function testRequest(array $keys, array $values, bool $expect)
+    {
+        $dataList = array_combine($keys, $values);
+        $request = new InformationRequest();
+        $rules = $request->rules();
+        $validator = Validator::make($dataList, $rules);
+        $result = $validator->passes();
+        $this->assertEquals($expect, $result);
+    }
+
+    public function dataproviderExample()
+    {
+        $releaseDate = Carbon::now();
+        $oneMonthAgo = Carbon::now()->subMonth();
+        return [
+            '正常' => [
+                ['title', 'content', 'release_date'],
+                ['タイトル', 'コンテンツ', $releaseDate],
+                true
+            ],
+            'タイトル空' => [
+                ['title', 'content', 'release_date'],
+                ['', 'コンテンツ', $releaseDate],
+                false
+            ],
+            'タイトル文字超え' => [
+                ['title', 'content', 'release_date'],
+                [str_repeat('a', 31), 'コンテンツ', $releaseDate],
+                false
+            ],
+            'コンテンツ空' => [
+                ['title', 'content', 'release_date'],
+                ['タイトル', '', $releaseDate],
+                false
+            ],
+            'コンテンツ文字超え' => [
+                ['title', 'content', 'release_date'],
+                ['タイトル', str_repeat('a', 1001), $releaseDate],
+                false
+            ],
+            '公開日空' => [
+                ['title', 'content', 'release_date'],
+                ['タイトル', 'コンテンツ', ''],
+                false
+            ],
+            '公開日非日付データ' => [
+                ['title', 'content', 'release_date'],
+                ['タイトル', 'コンテンツ', 'あいうえお'],
+                false
+            ],
+            '公開日過去日' => [
+                ['title', 'content', 'release_date'],
+                ['タイトル', 'コンテンツ', $oneMonthAgo],
+                false
+            ],
+        ];
     }
 }
